@@ -179,7 +179,8 @@
       }
       .disabled-note { margin: 9px 0 0; color: #e6c998; text-align: center; font-size: 10px; line-height: 1.5; }
       .footer { padding: 15px 22px 18px; border-top: 1px solid var(--line); background: rgb(0 0 0 / 12%); }
-      .processor-note { margin: 14px 0 0; color: #a9a6b1; text-align: center; font-size: 11px; line-height: 1.6; }
+      .onegate { display: flex; align-items: center; justify-content: center; gap: 7px; color: #cbc6d1; font-size: 10px; font-weight: 600; }
+      .onegate svg { width: 14px; height: 14px; color: #85d5a7; }
       .trust-marks { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 7px; margin-top: 12px; }
       .trust-mark {
         padding: 4px 8px;
@@ -212,78 +213,77 @@
           <p class="eyebrow">Paying</p>
           <h1>Spenda Demo Store</h1>
           <div class="amount-wrap">
-            <label class="amount-label" for="amount">How much are you paying?</label>
+            <label class="amount-label" for="amount">Amount</label>
             <div class="amount-box">
               <span class="currency" aria-hidden="true">R</span>
-              <input id="amount" type="text" inputmode="decimal" value="" placeholder="0.00" aria-label="Amount in South African rand" aria-describedby="amount-help">
+              <input id="amount" type="text" inputmode="decimal" value="50.00" aria-label="Amount in South African rand">
             </div>
-            <p id="amount-help" class="fine-print" style="margin-top: 8px; text-align: left;">Between R1.00 and R500,000.00.</p>
           </div>
         </div>
 
         <fieldset class="methods" style="border: 0; margin: 0;">
-          <legend style="margin-bottom: 13px; font-size: 13px; font-weight: 700;">How would you like to pay?</legend>
+          <legend class="eyebrow" style="margin-bottom: 13px;">Choose a payment method</legend>
           <div class="method-list">
-            <label class="method">
-              <input type="radio" name="payment-method" value="googlepay">
-              <span class="radio" aria-hidden="true"></span>
-              <span class="method-icon" aria-hidden="true">G</span>
-              <span class="method-copy">
-                <span class="method-title">Google Pay</span>
-                <span class="method-hint">Pay with the cards saved to your Google account, on EFT Corp's secure checkout.</span>
-              </span>
-            </label>
-            <label class="method">
-              <input type="radio" name="payment-method" value="applepay">
-              <span class="radio" aria-hidden="true"></span>
-              <span class="method-icon" aria-hidden="true">A</span>
-              <span class="method-copy">
-                <span class="method-title">Apple Pay</span>
-                <span class="method-hint">Pay with Apple Pay on supported iPhones, on EFT Corp's secure checkout.</span>
-              </span>
-            </label>
             <label class="method selected">
               <input type="radio" name="payment-method" value="card" checked>
               <span class="radio" aria-hidden="true"></span>
               <span class="method-icon card-icon" aria-hidden="true">▰</span>
               <span class="method-copy">
                 <span class="method-title">Bank card <span class="badge">Easiest</span></span>
-                <span class="method-hint">Visa or Mastercard — straight into the secure card form.</span>
+                <span class="method-hint">Visa, Mastercard &amp; more</span>
               </span>
             </label>
             <label class="method">
-              <input type="radio" name="payment-method" value="ozow">
+              <input type="radio" name="payment-method" value="wallet">
+              <span class="radio" aria-hidden="true"></span>
+              <span class="method-icon" aria-hidden="true">⌘</span>
+              <span class="method-copy">
+                <span class="method-title">Apple Pay / Google Pay &amp; more</span>
+                <span class="method-hint">Fast, secure digital wallets</span>
+              </span>
+              <span class="chevron" aria-hidden="true">›</span>
+            </label>
+            <label class="method">
+              <input type="radio" name="payment-method" value="eft">
               <span class="radio" aria-hidden="true"></span>
               <span class="method-icon eft-icon" aria-hidden="true">↗</span>
               <span class="method-copy">
                 <span class="method-title">Instant EFT</span>
-                <span class="method-hint">Pay straight from your bank account with Ozow instant EFT.</span>
+                <span class="method-hint">Pay directly from your bank account</span>
               </span>
+              <span class="chevron" aria-hidden="true">›</span>
             </label>
             <label class="method">
-              <input type="radio" name="payment-method" value="scantopay">
+              <input type="radio" name="payment-method" value="crypto">
               <span class="radio" aria-hidden="true"></span>
-              <span class="method-icon" aria-hidden="true">⌗</span>
+              <span class="method-icon crypto-icon" aria-hidden="true">₿</span>
               <span class="method-copy">
-                <span class="method-title">Scan to Pay</span>
-                <span class="method-hint">Get a QR code to scan and pay with your phone.</span>
+                <span class="method-title">Crypto</span>
+                <span class="method-hint">Pay with supported digital currencies</span>
               </span>
+              <span class="chevron" aria-hidden="true">›</span>
             </label>
           </div>
         </fieldset>
 
         <div class="actions">
-          <button class="pay-button" type="button" disabled aria-disabled="true">Pay</button>
-          <p class="disabled-note">Payment is disabled in this visual-only preview.</p>
-          <p class="processor-note">Payments are processed by EFT Corp (Eclipse). Spenda never sees your card details.</p>
+          <button class="pay-button" type="button" disabled aria-disabled="true">Pay R50.00</button>
+          <p class="disabled-note">Payment is unavailable in this visual preview.</p>
         </div>
 
         <footer class="footer">
-          <div class="trust-marks" aria-label="Payment security marks">
+          <div class="onegate">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3 19 6v5c0 4.7-2.9 8.3-7 10-4.1-1.7-7-5.3-7-10V6l7-3Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="m9 12 2 2 4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Secure payment processing by <strong>OneGate</strong>
+          </div>
+          <div class="trust-marks" aria-label="Accepted payment networks">
             <span class="trust-mark">VISA</span>
             <span class="trust-mark">mastercard</span>
-            <span class="trust-mark">PCI DSS</span>
+            <span class="trust-mark">Apple Pay</span>
+            <span class="trust-mark">Google Pay</span>
+            <span class="trust-mark">Instant EFT</span>
           </div>
+          <p class="fine-print">Your payment details are protected with secure encryption.<br>Spenda Demo Store · South Africa</p>
         </footer>
       </section>
     </main>
@@ -293,8 +293,9 @@
       const payButton = document.querySelector(".pay-button");
 
       amountInput.addEventListener("input", () => {
-        const amount = amountInput.value.trim();
-        payButton.textContent = amount ? `Pay R${amount}` : "Pay";
+        payButton.textContent = amountInput.value.trim()
+          ? `Pay R${amountInput.value.trim()}`
+          : "Pay";
       });
 
       options.forEach((option) => {
