@@ -87,7 +87,7 @@
         background: linear-gradient(155deg, #1a1721, #131118 64%);
         box-shadow: 0 24px 70px rgb(0 0 0 / 32%);
       }
-      .merchant { padding: 28px 28px 22px; border-bottom: 1px solid var(--line); }
+      .merchant { padding: 28px; }
       .eyebrow { margin: 0 0 7px; color: var(--muted); font-size: 10px; font-weight: 750; letter-spacing: .17em; text-transform: uppercase; }
       h1 { margin: 0; font-size: 32px; font-weight: 750; letter-spacing: -.045em; }
       .amount-wrap { margin-top: 21px; }
@@ -114,7 +114,14 @@
         letter-spacing: -.045em;
       }
       .amount-box:focus-within { border-color: var(--violet); box-shadow: 0 0 0 3px rgb(156 115 239 / 15%); }
-      .methods { padding: 20px 28px 17px; }
+      .methods {
+        margin: 16px 0 0;
+        padding: 20px 20px 18px;
+        border: 1px solid var(--line);
+        border-radius: 22px;
+        background: linear-gradient(155deg, #1a1721, #131118 64%);
+        box-shadow: 0 24px 70px rgb(0 0 0 / 24%);
+      }
       .methods h2 { margin: 0 0 13px; font-size: 16px; font-weight: 700; }
       .method-list { display: grid; gap: 10px; }
       .method {
@@ -172,7 +179,7 @@
         text-transform: uppercase;
       }
       .chevron { color: #807a88; font-size: 18px; }
-      .actions { padding: 0 28px 20px; }
+      .actions { margin-top: 16px; padding: 16px 0 0; border-top: 1px solid var(--line); }
       .pay-button {
         width: 100%;
         min-height: 64px;
@@ -186,7 +193,7 @@
         cursor: not-allowed;
       }
       .processor-note { margin: 16px 0 0; color: #a9a6b1; text-align: center; font-size: 12px; line-height: 1.55; }
-      .footer { padding: 15px 22px 18px; border-top: 1px solid var(--line); background: rgb(0 0 0 / 12%); }
+      .footer { padding: 12px 0 18px; }
       .onegate { display: flex; align-items: center; justify-content: center; gap: 7px; color: #cbc6d1; font-size: 10px; font-weight: 600; }
       .onegate svg { width: 14px; height: 14px; color: #85d5a7; }
       .trust-marks { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 7px; margin-top: 12px; }
@@ -231,14 +238,14 @@
             <p class="fine-print" style="margin-top: 8px; text-align: left;">Between R5.00 and R50,000.00.</p>
           </div>
         </div>
+      </section>
 
-        <fieldset class="methods" style="border: 0; margin: 0;">
+      <fieldset class="methods">
           <legend style="margin-bottom: 13px; font-size: 16px; font-weight: 700;">How would you like to pay?</legend>
           <div class="method-list">
             <label class="method selected">
               <input type="radio" name="payment-method" value="card" checked>
               <span class="radio" aria-hidden="true"></span>
-              <span class="method-icon card-icon" aria-hidden="true">▰</span>
               <span class="method-copy">
                 <span class="method-title">Bank card <span class="badge">Easiest</span></span>
                 <span class="method-hint">Visa, Mastercard or Amex.</span>
@@ -247,56 +254,45 @@
             <label class="method">
               <input type="radio" name="payment-method" value="wallet">
               <span class="radio" aria-hidden="true"></span>
-              <span class="method-icon" aria-hidden="true">⌘</span>
               <span class="method-copy">
                 <span class="method-title">Apple Pay, Google Pay &amp; more</span>
                 <span class="method-hint">Opens the full gateway page — Apple Pay and Google Pay show on supported phones, alongside every other way to pay.</span>
               </span>
-              <span class="chevron" aria-hidden="true">›</span>
             </label>
             <label class="method">
               <input type="radio" name="payment-method" value="eft">
               <span class="radio" aria-hidden="true"></span>
-              <span class="method-icon eft-icon" aria-hidden="true">↗</span>
               <span class="method-copy">
                 <span class="method-title">Instant EFT</span>
                 <span class="method-hint">Pay straight from your bank account through Ozow.</span>
               </span>
-              <span class="chevron" aria-hidden="true">›</span>
             </label>
             <label class="method">
               <input type="radio" name="payment-method" value="crypto">
               <span class="radio" aria-hidden="true"></span>
-              <span class="method-icon crypto-icon" aria-hidden="true">₿</span>
               <span class="method-copy">
                 <span class="method-title">Crypto</span>
                 <span class="method-hint">Pay in cryptocurrency through Ezebit.</span>
               </span>
-              <span class="chevron" aria-hidden="true">›</span>
             </label>
           </div>
-        </fieldset>
+      </fieldset>
 
-        <div class="actions">
-          <button class="pay-button" type="button" disabled aria-disabled="true">Pay R50.00</button>
-          <p class="processor-note">Payments are processed by OneGate. Spenda never sees your card details.</p>
+      <div class="actions">
+        <button class="pay-button" type="button" disabled aria-disabled="true">Pay R50.00</button>
+        <p class="processor-note">Payments are processed by OneGate. Spenda never sees your card details.</p>
+      </div>
+
+      <footer class="footer">
+        <div class="trust-marks" aria-label="Accepted payment networks">
+          <span class="trust-mark">VISA</span>
+          <span class="trust-mark">mastercard</span>
+          <span class="trust-mark">Apple Pay</span>
+          <span class="trust-mark">Google Pay</span>
+          <span class="trust-mark">Instant EFT</span>
         </div>
-
-        <footer class="footer">
-          <div class="onegate">
-            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3 19 6v5c0 4.7-2.9 8.3-7 10-4.1-1.7-7-5.3-7-10V6l7-3Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="m9 12 2 2 4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            Secure payment processing by <strong>OneGate</strong>
-          </div>
-          <div class="trust-marks" aria-label="Accepted payment networks">
-            <span class="trust-mark">VISA</span>
-            <span class="trust-mark">mastercard</span>
-            <span class="trust-mark">Apple Pay</span>
-            <span class="trust-mark">Google Pay</span>
-            <span class="trust-mark">Instant EFT</span>
-          </div>
-          <p class="fine-print">Your payment details are protected with secure encryption.<br>Spenda Demo Store · South Africa</p>
-        </footer>
-      </section>
+        <p class="fine-print">Your payment details are protected with secure encryption.<br>Spenda Demo Store · South Africa</p>
+      </footer>
     </main>
     <script>
       const options = document.querySelectorAll(".method");
