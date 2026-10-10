@@ -35,12 +35,25 @@
         margin: 0;
         color: #fff;
         background:
-          radial-gradient(ellipse at 50% -16%, rgb(110 59 209 / 24%), transparent 48%),
+          radial-gradient(ellipse at 50% -16%, rgb(110 59 209 / 10%), transparent 48%),
           var(--ink);
       }
       button, input { font: inherit; }
-      .page { width: min(100% - 32px, 560px); margin: 0 auto; padding: 24px 0 32px; }
-      .topbar { display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; }
+      .page { width: min(100% - 32px, 560px); margin: 0 auto; padding: 0 0 32px; }
+      .topbar {
+        position: relative;
+        left: 50%;
+        display: flex;
+        width: 100vw;
+        height: 76px;
+        align-items: center;
+        justify-content: space-between;
+        margin: 0 0 24px;
+        padding-inline: max(16px, calc((100vw - 560px) / 2));
+        transform: translateX(-50%);
+        border-bottom: 1px solid #302b36;
+        background: #0b0910;
+      }
       .brand { display: flex; align-items: center; gap: 10px; }
       .brand img:first-child { width: 34px; height: 34px; object-fit: contain; }
       .brand img:last-child { width: 82px; height: 24px; object-fit: contain; }
@@ -187,7 +200,6 @@
         letter-spacing: .02em;
       }
       .fine-print { margin: 11px 0 0; color: #77717e; text-align: center; font-size: 9px; line-height: 1.5; }
-      @media (min-width: 600px) { .page { padding-top: 32px; } }
       @media (prefers-reduced-motion: no-preference) { .method { transition: border-color .15s ease, background .15s ease; } }
     </style>
   </head>
